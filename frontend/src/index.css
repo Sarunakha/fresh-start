@@ -1,0 +1,29 @@
+@import "leaflet/dist/leaflet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-clinical-white text-clinical-charcoal antialiased;
+    font-family: theme(fontFamily.sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: theme(fontFamily.serif);
+    letter-spacing: -0.02em;
+  }
+}
+

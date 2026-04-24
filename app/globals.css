@@ -1,0 +1,53 @@
+/* Tailwind v4 entrypoint */
+@import "tailwindcss";
+
+html,
+body {
+  height: 100%;
+}
+
+@layer base {
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply text-slate-900;
+  }
+}
+
+/* Prevent browser autofill from painting bright input backgrounds. */
+@layer base {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 9999s ease-in-out 0s;
+    box-shadow: 0 0 0px 1000px transparent inset;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    caret-color: #ffffff;
+  }
+}
+
+/* Ocean glow background utility */
+.ocean-bg {
+  background:
+    radial-gradient(900px 520px at 18% 22%, rgba(153, 246, 228, 0.22), transparent 55%),
+    radial-gradient(740px 420px at 78% 30%, rgba(56, 189, 248, 0.12), transparent 52%),
+    radial-gradient(900px 520px at 50% 78%, rgba(15, 23, 42, 0.20), transparent 62%),
+    linear-gradient(180deg, #F9FAFB 0%, #F3F4F6 100%);
+}
+
+.glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
