@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 function clamp01(n: number) {
   if (Number.isNaN(n)) return 0;
   return Math.max(0, Math.min(1, n));
@@ -29,10 +31,12 @@ function lerpHex(from: string, to: string, t: number) {
 }
 
 export default async function AdminDashboardPage() {
-  const grouped = await prisma.quoteRequest.groupBy({
-    by: ["spaceType"],
-    _count: { _all: true }
-  });
+  const grouped = await prisma.quoteRequest
+    .groupBy({
+      by: ["spaceType"],
+      _count: { _all: true }
+    })
+    .catch(() => []);
   const top = grouped
     .map((g) => ({ key: g.spaceType, count: g._count._all }))
     .sort((a, b) => b.count - a.count)
