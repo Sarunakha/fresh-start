@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Navbar } from "./Navbar";
 import { SplashScreen } from "./SplashScreen";
 import { AnimatePresence, LayoutGroup } from "framer-motion";
+import { Footer } from "./Footer";
 
 const SESSION_KEY = "fsc:splashShown";
 
@@ -41,12 +42,13 @@ export function SplashGate({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen bg-white text-[#0A1922]">
+    <div className="min-h-screen bg-clinical-white text-clinical-navy">
       <LayoutGroup>
         <Navbar hideLogo={showSplash} />
-        <div className={showSplash ? "opacity-0 pointer-events-none select-none" : "opacity-100"}>
+        <main className={showSplash ? "opacity-0 pointer-events-none select-none" : "opacity-100"}>
           {children}
-        </div>
+        </main>
+        <Footer />
         <AnimatePresence>
           {showSplash ? <SplashScreen onDone={onDone} /> : null}
         </AnimatePresence>
