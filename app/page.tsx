@@ -6,7 +6,7 @@ export default function HomePage() {
       <h1 className="text-2xl font-semibold">Fresh Start Facility Solutions Sydney</h1>
       <p className="mt-2 text-sm text-slate-600">
         Next.js site root is ready. Go to{" "}
-        <Link className="font-medium text-slate-900 underline" href="/frontend/src/modules/service/pages/HomePage.tsx">
+        <Link className="font-medium text-slate-900 underline" href="/admin/login">
           /admin/login
         </Link>
         .
