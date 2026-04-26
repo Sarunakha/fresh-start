@@ -1,5 +1,6 @@
 /* Tailwind v4 entrypoint */
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 html,
 body {
