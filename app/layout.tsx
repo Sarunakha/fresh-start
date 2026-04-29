@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="min-h-screen bg-white text-slate-900">
+      <body className="min-h-screen bg-clinical-white text-clinical-navy">
         <SplashGate>{children}</SplashGate>
       </body>
     </html>

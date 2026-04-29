@@ -15,6 +15,10 @@ function clamp(s: unknown, max: number) {
 }
 
 export async function POST(req: Request) {
+  if (!process.env.DATABASE_URL) {
+    return Response.json({ error: "Service temporarily unavailable" }, { status: 503 });
+  }
+
   const json = (await req.json().catch(() => null)) as CreateBookingBody | null;
   if (!json) return Response.json({ error: "Invalid request body" }, { status: 400 });
 
@@ -35,17 +39,21 @@ export async function POST(req: Request) {
   }
 
   // Store as BookingRequest (pending review). Email is kept in notes for now (schema doesn't include email).
-  const created = await prisma.bookingRequest.create({
-    data: {
-      primaryContactName,
-      serviceSuburb,
-      serviceCategory,
-      preferredDate: preferredDate ?? new Date(),
-      notes: [notes, `Email: ${email}`].filter(Boolean).join("\n\n") || null,
-      status: "Pending Review"
-    }
-  });
+  try {
+    const created = await prisma.bookingRequest.create({
+      data: {
+        primaryContactName,
+        serviceSuburb,
+        serviceCategory,
+        preferredDate: preferredDate ?? new Date(),
+        notes: [notes, `Email: ${email}`].filter(Boolean).join("\n\n") || null,
+        status: "Pending Review"
+      }
+    });
 
-  return Response.json({ booking: { id: created.id } }, { status: 201 });
+    return Response.json({ booking: { id: created.id } }, { status: 201 });
+  } catch {
+    return Response.json({ error: "Unable to submit booking request" }, { status: 500 });
+  }
 }
 

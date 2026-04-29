@@ -7,7 +7,14 @@ function requireEnv(name: string) {
 }
 
 export function getAppUrl() {
-  return process.env.APP_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const explicit = process.env.APP_URL ?? process.env.NEXT_PUBLIC_APP_URL;
+  if (explicit) return explicit;
+
+  // Vercel sets VERCEL_URL without protocol (e.g. "my-app.vercel.app").
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) return `https://${vercelUrl}`;
+
+  return "http://localhost:3000";
 }
 
 export function getMailFrom() {
