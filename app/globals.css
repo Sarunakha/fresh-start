@@ -1,6 +1,7 @@
+@import "leaflet/dist/leaflet.css";
+
 /* Tailwind v4 entrypoint */
 @import "tailwindcss";
-@import "leaflet/dist/leaflet.css";
 
 html,
 body {
@@ -15,7 +16,7 @@ body {
   }
 
   body {
-    @apply text-slate-900;
+    /* Base text color is set in app/layout.tsx */
   }
 }
 
