@@ -14,7 +14,8 @@ export function getAppUrl() {
   const vercelUrl = process.env.VERCEL_URL?.trim();
   if (vercelUrl) return `https://${vercelUrl}`;
 
-  return "http://localhost:3000";
+  const port = process.env.PORT?.trim() || "3000";
+  return `http://127.0.0.1:${port}`;
 }
 
 export function getMailFrom() {

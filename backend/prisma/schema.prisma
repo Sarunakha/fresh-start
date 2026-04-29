@@ -5,6 +5,8 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  // Keep in sync with ../../prisma/schema.prisma (supports pooled vs direct URLs)
+  directUrl = env("DIRECT_URL")
 }
 
 // NOTE: This file intentionally mirrors `../../prisma/schema.prisma` so the backend
