@@ -10,10 +10,19 @@ function slugify(input: string) {
 }
 
 export async function GET() {
-  const services = await prisma.service.findMany({
-    where: { isVisible: true },
-    orderBy: [{ priceSort: "asc" }, { name: "asc" }]
-  });
+  if (!process.env.DATABASE_URL) {
+    return Response.json({ services: [] });
+  }
+
+  let services: Awaited<ReturnType<typeof prisma.service.findMany>>;
+  try {
+    services = await prisma.service.findMany({
+      where: { isVisible: true },
+      orderBy: [{ priceSort: "asc" }, { name: "asc" }]
+    });
+  } catch {
+    return Response.json({ services: [] });
+  }
 
   return Response.json({
     services: services.map((s) => ({

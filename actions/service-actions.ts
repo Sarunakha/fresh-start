@@ -4,10 +4,19 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 
 export async function getServices(isAdmin = false) {
-  return prisma.service.findMany({
-    ...(isAdmin ? {} : { where: { isVisible: true } }),
-    orderBy: [{ priceSort: "asc" }, { name: "asc" }]
-  });
+  // Production deployments (e.g. Vercel) may be missing DATABASE_URL during initial setup.
+  // Public pages should degrade gracefully instead of hard-500'ing the whole route.
+  if (!isAdmin && !process.env.DATABASE_URL) return [];
+
+  try {
+    return await prisma.service.findMany({
+      ...(isAdmin ? {} : { where: { isVisible: true } }),
+      orderBy: [{ priceSort: "asc" }, { name: "asc" }]
+    });
+  } catch (err) {
+    if (!isAdmin) return [];
+    throw err;
+  }
 }
 
 function normalizePayload(input: FormData | any) {

@@ -10,10 +10,15 @@ export async function getAllReviews() {
 }
 
 export async function getPublicReviews() {
-  return prisma.clientReview.findMany({
-    where: { isVisible: true },
-    orderBy: [{ createdAt: "desc" }]
-  });
+  if (!process.env.DATABASE_URL) return [];
+  try {
+    return await prisma.clientReview.findMany({
+      where: { isVisible: true },
+      orderBy: [{ createdAt: "desc" }]
+    });
+  } catch {
+    return [];
+  }
 }
 
 export async function addReview(formData: FormData | any) {
