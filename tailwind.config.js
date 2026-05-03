@@ -14,6 +14,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        /** Book Now / footer brand surface (#0A4B52) — use bg-fsc-footer etc. so utilities survive v4 + Vercel builds. */
+        fsc: {
+          footer: "#0A4B52",
+          "footer-hover": "#083E44",
+          /** Same as clinical.navy — dark band sections (mission, home CTA). */
+          navy: "#0A1922"
+        },
         clinical: {
           white: "#FFFFFF",
           lavender: "#F8F6FA",

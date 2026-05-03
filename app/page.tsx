@@ -177,7 +177,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-xl2 bg-white shadow-clinical" />
-            <div className="rounded-xl2 bg-clinical-navy shadow-clinical" />
+            <div className="rounded-xl2 bg-fsc-navy shadow-clinical" />
             <div className="rounded-xl2 bg-clinical-aqua shadow-clinical">
               <div className="p-6">
                 <div className="text-xs font-semibold tracking-[0.26em] text-clinical-navy/70">
@@ -196,7 +196,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-clinical-navy py-16 text-white">
+      <section className="bg-fsc-navy py-16 text-white">
         <Container className="flex flex-col items-center justify-center gap-6 text-center md:flex-row md:text-left">
           <h2 className="text-3xl">Ready to bring a fresh standard of clean into your space?</h2>
         </Container>

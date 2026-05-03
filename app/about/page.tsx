@@ -22,7 +22,7 @@ export default function AboutPage() {
     <div>
       <section className="bg-clinical-lavender py-16">
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl2 bg-clinical-navy shadow-clinical">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl2 bg-fsc-navy shadow-clinical">
             <img src={story1Src} alt={story1Alt} className="h-full w-full object-cover opacity-75" />
           </div>
           <div>
@@ -72,13 +72,13 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl2 bg-clinical-navy shadow-clinical">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl2 bg-fsc-navy shadow-clinical">
             <img src={story2Src} alt={story2Alt} className="h-full w-full object-cover opacity-85" />
           </div>
         </Container>
       </section>
 
-      <section className="bg-clinical-navy py-16 text-white">
+      <section className="bg-fsc-navy py-16 text-white">
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <div className="text-xs font-semibold tracking-[0.28em] text-white/60">Our Mission</div>

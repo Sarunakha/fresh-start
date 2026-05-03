@@ -1,7 +1,11 @@
 @import "leaflet/dist/leaflet.css";
 
-/* Tailwind v4 entrypoint */
+/* Tailwind v4 entrypoint — @config loads theme/content from tailwind.config.js (v4 does not apply JS safelist). */
 @import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* Ensure production always emits these utilities (dark sections + footer). */
+@source inline("bg-fsc-footer hover:bg-fsc-footer-hover bg-fsc-navy border-fsc-footer");
 
 html,
 body {

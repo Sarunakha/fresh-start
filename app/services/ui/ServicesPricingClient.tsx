@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 type Service = {
@@ -28,6 +29,14 @@ export function ServicesPricingClient({
     const selected = addons.filter((a) => selectedAddOns[a.id]);
     if (selected.length === 0) return "$0.00";
     return `${selected.length} selected`;
+  }, [addons, selectedAddOns]);
+
+  const continueHref = useMemo(() => {
+    const ids = addons.filter((a) => selectedAddOns[a.id]).map((a) => a.id);
+    if (ids.length === 0) return "/book";
+    const sp = new URLSearchParams();
+    sp.set("addons", ids.join(","));
+    return `/book?${sp.toString()}`;
   }, [addons, selectedAddOns]);
 
   return (
@@ -68,14 +77,14 @@ export function ServicesPricingClient({
                   className={[
                     "relative rounded-2xl bg-white px-8 pb-8 pt-10 shadow-[0_16px_40px_rgba(2,6,23,0.10)]",
                     popular
-                      ? "border border-[#0A4B52] shadow-[0_22px_60px_rgba(2,6,23,0.16)] md:-mt-4"
+                      ? "border border-fsc-footer shadow-[0_22px_60px_rgba(2,6,23,0.16)] md:-mt-4"
                       : "border border-black/5"
                   ].join(" ")}
                 >
                   <div className="absolute left-8 top-5 right-8 h-px bg-slate-200/80" />
 
                   {popular ? (
-                    <div className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full bg-[#0A4B52] px-4 py-1 text-[10px] font-semibold tracking-[0.28em] text-white">
+                    <div className="absolute left-1/2 top-2 -translate-x-1/2 rounded-full bg-fsc-footer px-4 py-1 text-[10px] font-semibold tracking-[0.28em] text-white">
                       MOST POPULAR
                     </div>
                   ) : null}
@@ -99,22 +108,23 @@ export function ServicesPricingClient({
                   <ul className="mt-6 space-y-3 text-sm text-slate-600">
                     {(s.features ?? []).map((f, idx) => (
                       <li key={`${s.id}_f_${idx}`} className="flex items-center gap-3">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#0A4B52]" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-fsc-footer" />
                         {f}
                       </li>
                     ))}
                   </ul>
 
-                  <button
+                  <Link
+                    href={`/book?package=${encodeURIComponent(s.id)}`}
                     className={[
-                      "mt-8 w-full rounded-xl px-4 py-3 text-sm font-semibold transition",
+                      "mt-8 flex w-full items-center justify-center rounded-xl px-4 py-3 text-center text-sm font-semibold transition",
                       popular
-                        ? "bg-[#0A4B52] text-white hover:bg-[#083E44]"
+                        ? "bg-fsc-footer text-white hover:bg-fsc-footer-hover"
                         : "bg-[#A5E6DF] text-[#0F172A] hover:bg-[#8fe0d8]"
                     ].join(" ")}
                   >
                     {popular ? "Book Now" : "Select Package"}
-                  </button>
+                  </Link>
                 </article>
               );
             })}
@@ -186,9 +196,12 @@ export function ServicesPricingClient({
               <div className="mt-2 text-sm text-slate-600">
                 Range-based add-ons are tracked by selection count.
               </div>
-              <button className="mt-8 w-full rounded-xl bg-[#A5E6DF] px-4 py-3 text-sm font-semibold text-[#0F172A] hover:bg-[#8fe0d8]">
+              <Link
+                href={continueHref}
+                className="mt-8 flex w-full items-center justify-center rounded-xl bg-[#A5E6DF] px-4 py-3 text-center text-sm font-semibold text-[#0F172A] hover:bg-[#8fe0d8]"
+              >
                 Continue
-              </button>
+              </Link>
             </aside>
           </div>
         </div>

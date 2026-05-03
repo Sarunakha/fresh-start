@@ -16,7 +16,7 @@ export function Footer() {
     : "https://www.instagram.com/heraldcollegektm";
 
   return (
-    <footer className="mt-24 bg-clinical-navy text-white">
+    <footer className="mt-24 bg-fsc-footer text-white">
       <Container className="grid gap-10 py-12 md:grid-cols-3 md:items-start">
         <div>
           <div className="text-sm font-semibold tracking-wide">Fresh Start Facility Solutions Sydney</div>
