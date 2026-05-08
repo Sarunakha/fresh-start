@@ -13,7 +13,7 @@ export function Footer() {
     ? rawInstagramUrl.startsWith("http://") || rawInstagramUrl.startsWith("https://")
       ? rawInstagramUrl
       : `https://${rawInstagramUrl}`
-    : "https://www.instagram.com/heraldcollegektm";
+    : "https://www.instagram.com/";
 
   return (
     <footer className="mt-24 bg-fsc-footer text-white">
@@ -39,7 +39,7 @@ export function Footer() {
           <Link className="hover:text-white" href="/services">
             Services
           </Link>
-          <Link className="hover:text-white" href="/book">
+          <Link className="hover:text-white" href="/get-a-quote">
             Get a Quote
           </Link>
         </div>

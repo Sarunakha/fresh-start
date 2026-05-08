@@ -1,4 +1,5 @@
 import { getPublicReviews } from "@/actions/client-review-actions";
+import { ReviewsTransformationGrid } from "@/components/reviews/ReviewsTransformationGrid";
 import { Star } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -140,10 +141,7 @@ export default async function ReviewsPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-black/5" />
-              <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-black/5" />
-            </div>
+            <ReviewsTransformationGrid />
             <div className="max-w-xl">
               <div className="text-xs font-semibold tracking-[0.28em] text-slate-500">
                 CASE STUDY: HORIZON CENTER

@@ -10,7 +10,7 @@ const FALLBACK_HERO =
 const FALLBACK_METHODOLOGY =
   "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=900&q=80";
 const FALLBACK_HERO_SUBTEXT =
-  "Fresh Start Cleaning Co. provides reliable, high-quality cleaning services for homes, apartments, offices, and shared spaces across Sydney. We focus on the details that matter most, delivering clean, refreshed environments that feel comfortable, presentable, and professionally maintained. Whether you need a regular service, a one-off deep clean, or help preparing a property for handover, our goal is simple: leave every space noticeably better than we found it.";
+  "Fresh Start Facility Solutions provides reliable, high-quality cleaning services for homes, apartments, offices, and shared spaces across Sydney. We focus on the details that matter most, delivering clean, refreshed environments that feel comfortable, presentable, and professionally maintained. Whether you need a regular service, a one-off deep clean, or help preparing a property for handover, our goal is simple: leave every space noticeably better than we found it.";
 
 export function HomePage() {
   const assets = useWebsiteAssets();

@@ -86,7 +86,7 @@ export function Navbar({ hideLogo }: Props) {
           </button>
 
           <Link
-            href="/book"
+            href="/get-a-quote"
             className="hidden items-center justify-center rounded-xl bg-clinical-aqua px-4 py-2 text-sm font-medium text-clinical-navy shadow-clinicalSm hover:brightness-[0.98] md:inline-flex"
           >
             Get a Quote
@@ -146,7 +146,7 @@ export function Navbar({ hideLogo }: Props) {
               </div>
 
               <Link
-                href="/book"
+                href="/get-a-quote"
                 className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-clinical-aqua px-4 py-3 text-sm font-semibold text-clinical-navy shadow-clinicalSm hover:brightness-[0.98]"
                 onClick={() => setMobileOpen(false)}
               >

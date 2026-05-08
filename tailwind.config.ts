@@ -1,10 +1,25 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  // Keep this broad to prevent production purge mismatches (Vercel/Linux).
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sections/**/*.{js,ts,jsx,tsx,mdx}",
+    "./actions/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
+    "./hooks/**/*.{js,ts,jsx,tsx,mdx}",
+    "./constants/**/*.{js,ts,jsx,tsx,mdx}"
+  ],
   theme: {
     extend: {
       colors: {
+        /** Brand surfaces used across the marketing site. */
+        fsc: {
+          footer: "#0A4B52",
+          "footer-hover": "#083E44",
+          navy: "#0A1922"
+        },
         clinical: {
           white: "#FFFFFF",
           lavender: "#F8F6FA",

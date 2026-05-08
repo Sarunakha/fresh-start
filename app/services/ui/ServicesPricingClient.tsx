@@ -33,10 +33,10 @@ export function ServicesPricingClient({
 
   const continueHref = useMemo(() => {
     const ids = addons.filter((a) => selectedAddOns[a.id]).map((a) => a.id);
-    if (ids.length === 0) return "/book";
+    if (ids.length === 0) return "/get-a-quote";
     const sp = new URLSearchParams();
     sp.set("addons", ids.join(","));
-    return `/book?${sp.toString()}`;
+    return `/get-a-quote?${sp.toString()}`;
   }, [addons, selectedAddOns]);
 
   return (
@@ -115,7 +115,7 @@ export function ServicesPricingClient({
                   </ul>
 
                   <Link
-                    href={`/book?package=${encodeURIComponent(s.id)}`}
+                    href={`/get-a-quote?package=${encodeURIComponent(s.id)}`}
                     className={[
                       "mt-8 flex w-full items-center justify-center rounded-xl px-4 py-3 text-center text-sm font-semibold transition",
                       popular
