@@ -30,6 +30,15 @@ export default function BookPage() {
     return Math.round((filled / fields.length) * 100);
   }, [email, notes, preferredArrivalDate, primaryContactName, serviceCategory, serviceSuburb]);
 
+  const minDate = useMemo(() => {
+    // Use local date (YYYY-MM-DD) so the browser date picker blocks past dates reliably.
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, "0");
+    const dd = String(now.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  }, []);
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitResult(null);
@@ -217,6 +226,7 @@ export default function BookPage() {
                     className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-clinical-aqua/60"
                     value={preferredArrivalDate}
                     onChange={(e) => setPreferredArrivalDate(e.target.value)}
+                    min={minDate}
                     required
                   />
                 </div>

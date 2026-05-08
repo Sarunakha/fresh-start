@@ -47,6 +47,10 @@ export type SubmitQuoteResult = { ok: true } | { ok: false; error: string };
 
 /** Public: creates a quote lead from the marketing wizard. */
 export async function submitQuoteRequest(data: QuoteWizardPayload): Promise<SubmitQuoteResult> {
+  if (!process.env.DATABASE_URL) {
+    return { ok: false, error: "Service temporarily unavailable. Please try again later." };
+  }
+
   const spaceType = clamp(data.spaceType ?? "");
   const approximateSize = clamp(data.approximateSize ?? "");
   const frequency = clamp(data.frequency ?? "");
@@ -86,7 +90,8 @@ export async function submitQuoteRequest(data: QuoteWizardPayload): Promise<Subm
     });
     revalidatePath("/admin/quotes");
     return { ok: true };
-  } catch {
+  } catch (err) {
+    console.error("submitQuoteRequest failed", err);
     return { ok: false, error: "Unable to submit your quote request. Please try again." };
   }
 }

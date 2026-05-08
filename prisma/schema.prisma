@@ -5,8 +5,6 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // Use for non-pooled migrations / direct connections (e.g. Supabase "Direct connection")
-  directUrl = env("DIRECT_URL")
 }
 
 enum BookingStatus {

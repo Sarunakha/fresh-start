@@ -86,6 +86,13 @@ export function Navbar({ hideLogo }: Props) {
           </button>
 
           <Link
+            href="/book"
+            className="hidden items-center justify-center rounded-xl border border-black/10 bg-white/70 px-4 py-2 text-sm font-medium text-clinical-navy shadow-sm backdrop-blur hover:bg-white md:inline-flex"
+          >
+            Book Now
+          </Link>
+
+          <Link
             href="/get-a-quote"
             className="hidden items-center justify-center rounded-xl bg-clinical-aqua px-4 py-2 text-sm font-medium text-clinical-navy shadow-clinicalSm hover:brightness-[0.98] md:inline-flex"
           >
@@ -144,6 +151,14 @@ export function Navbar({ hideLogo }: Props) {
                   );
                 })}
               </div>
+
+              <Link
+                href="/book"
+                className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-black/10 bg-white px-4 py-3 text-sm font-semibold text-clinical-navy shadow-sm hover:bg-slate-50"
+                onClick={() => setMobileOpen(false)}
+              >
+                Book Now
+              </Link>
 
               <Link
                 href="/get-a-quote"
