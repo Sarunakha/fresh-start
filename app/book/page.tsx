@@ -156,7 +156,7 @@ export default function BookPage() {
                     PRIMARY CONTACT NAME
                   </label>
                   <input
-                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-clinical-aqua/60"
+                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-clinical-navy outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-clinical-aqua/60"
                     placeholder="e.g. Julienne Smith"
                     value={primaryContactName}
                     onChange={(e) => setPrimaryContactName(e.target.value)}
@@ -169,7 +169,7 @@ export default function BookPage() {
                   </label>
                   <input
                     type="email"
-                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-clinical-aqua/60"
+                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-clinical-navy outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-clinical-aqua/60"
                     placeholder="e.g. julienne@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -184,7 +184,7 @@ export default function BookPage() {
                     SERVICE SUBURB
                   </label>
                   <select
-                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-clinical-aqua/60"
+                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-clinical-navy outline-none focus:ring-2 focus:ring-clinical-aqua/60"
                     value={serviceSuburb}
                     onChange={(e) => setServiceSuburb(e.target.value)}
                     required
@@ -205,7 +205,7 @@ export default function BookPage() {
                     SERVICE CATEGORY
                   </label>
                   <select
-                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-clinical-aqua/60"
+                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-clinical-navy outline-none focus:ring-2 focus:ring-clinical-aqua/60"
                     value={serviceCategory}
                     onChange={(e) => setServiceCategory(e.target.value)}
                     required
@@ -223,7 +223,7 @@ export default function BookPage() {
                   </label>
                   <input
                     type="date"
-                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-clinical-aqua/60"
+                    className="mt-2 h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-clinical-navy outline-none focus:ring-2 focus:ring-clinical-aqua/60"
                     value={preferredArrivalDate}
                     onChange={(e) => setPreferredArrivalDate(e.target.value)}
                     min={minDate}
@@ -237,7 +237,7 @@ export default function BookPage() {
                   PURITY REQUIREMENTS &amp; NOTES
                 </label>
                 <textarea
-                  className="mt-2 min-h-28 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-clinical-aqua/60"
+                  className="mt-2 min-h-28 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-clinical-navy outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-clinical-aqua/60"
                   placeholder="Identify specific areas of concern or priority..."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
